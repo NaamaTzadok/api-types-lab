@@ -35,7 +35,7 @@ def update_book(book_id: int, book: BookIn):
     BOOKS[book_id] = {"id": book_id, **book.model_dump()}
     return BOOKS.get(book_id)
 
-@app.delete("/books/{book_id}")     # Delete book
+@app.delete("/books/{book_id}", status_code=204)     # Delete book
 def delete_book(book_id: int):
     if book_id not in BOOKS:
         raise HTTPException(status_code=404, detail="Book Not found")
