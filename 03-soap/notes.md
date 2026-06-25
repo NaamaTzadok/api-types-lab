@@ -1,4 +1,4 @@
-## GraphQL API Lab Notes
+## SOAP API Lab Notes
 
 ### Client Output:
 ```text
