@@ -45,6 +45,7 @@ dependencies = [
     { name = "spyne" },
     { name = "strawberry-graphql" },
     { name = "uvicorn", extra = ["standard"] },
+    { name = "websockets" },
     { name = "zeep" },
 ]
 
@@ -64,6 +65,7 @@ requires-dist = [
     { name = "spyne", git = "https://github.com/arskom/spyne.git" },
     { name = "strawberry-graphql", specifier = ">=0.319.0" },
     { name = "uvicorn", extras = ["standard"], specifier = ">=0.49.0" },
+    { name = "websockets", specifier = ">=16.0" },
     { name = "zeep", specifier = ">=4.3.3" },
 ]
 
