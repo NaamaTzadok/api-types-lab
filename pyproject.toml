@@ -9,6 +9,7 @@ dependencies = [
     "grpcio>=1.81.1",
     "grpcio-tools>=1.81.1",
     "lxml>=6.1.1",
+    "mcp[cli]>=1.28.1",
     "requests>=2.34.2",
     "spyne>=2.14.0",
     "strawberry-graphql>=0.319.0",
