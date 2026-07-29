@@ -1,20 +1,20 @@
 import requests
 
-BASE = "http://127.0.0.1:8000"
+BASE = "http://localhost:8000"
 
-# GET all books
+# GET כל הספרים
 print("GET /books ->", requests.get(f"{BASE}/books").json())
 
-# POST new book
-created = requests.post(f"{BASE}/books", json={"title": "The Lord of the Rings: The Fellowship of the Ring", "author": "J.R.R. Tolkien"})
+# POST ספר חדש
+created = requests.post(f"{BASE}/books", json={"title": "Refactoring", "author": "Martin Fowler"})
 print("POST /books ->", created.status_code, created.json())
 new_id = created.json()["id"]
 
-# GET single book
+# GET ספר בודד
 print(f"GET /books/{new_id} ->", requests.get(f"{BASE}/books/{new_id}").json())
 
-# PUT update book
-updated = requests.put(f"{BASE}/books/{new_id}", json={"title": "The Lord of the Rings: The Two Towers", "author": "J.R.R. Tolkien"})
+# PUT עדכון
+updated = requests.put(f"{BASE}/books/{new_id}", json={"title": "Refactoring 2nd Ed", "author": "Martin Fowler"})
 print(f"PUT /books/{new_id} ->", updated.json())
 
 # DELETE
