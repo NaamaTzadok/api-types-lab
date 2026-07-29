@@ -1,6 +1,7 @@
 import strawberry
-from strawberry.fastapi import GraphQLRouter
 from fastapi import FastAPI
+from strawberry.fastapi import GraphQLRouter
+
 
 @strawberry.type
 class Book:
@@ -8,10 +9,12 @@ class Book:
     title: str
     author: str
 
+
 books: list[Book] = [
     Book(id=1, title="Clean Code", author="Robert Martin"),
     Book(id=2, title="The Pragmatic Programmer", author="Hunt & Thomas"),
 ]
+
 
 @strawberry.type
 class Query:
@@ -23,6 +26,7 @@ class Query:
     def book(self, id: int) -> Book | None:
         return next((b for b in books if b.id == id), None)
 
+
 @strawberry.type
 class Mutation:
     @strawberry.mutation
@@ -30,7 +34,7 @@ class Mutation:
         new = Book(id=max(b.id for b in books) + 1, title=title, author=author)
         books.append(new)
         return new
-    
+
     @strawberry.mutation
     def delete_book(self, id: int) -> bool:
         book_to_remove = next((b for b in books if b.id == id), None)
